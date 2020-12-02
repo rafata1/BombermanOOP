@@ -177,8 +177,9 @@ public class Bomb extends AnimatedEntity {
     public void update() {
         animate();
         if (timeToExplode > 0) {
+            if (BombermanGame.player1.getTileX()!= getTileX() || BombermanGame.player1.getTileY()!=getTileY())
+                setAllowToPassThru(false);
             timeToExplode--;
-            if(timeToExplode == 210) setAllowToPassThru(false);
             img = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animate, 80).getFxImage();
         } else {
 
